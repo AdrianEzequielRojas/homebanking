@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>
+        Homebanking
+    </title>
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+    <!-- Nucleo Icons -->
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="/web/dashboard/dashboard.css">
+</head>
+
+<body>
+    <div id="app">
+        <header class="dashboard">
+
+            <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css?family=Dosis:300" rel="stylesheet">
+
+            <nav class="navbar  navbar-expand-lg nav-menu fixed-top">
+
+                <div class="container-fluid">
+
+                    <a href="#" class="navbar-brand text-uppercase"> <img src="/web/img/TokioBank_logo.svg" alt="bank"
+                            style="width: 25rem;"> </a>
+
+                    <button class="navbar-toggler nav-button" type="button" data-toggle="collapse"
+                        data-target="#myNavbar">
+                        <div class="line1 ham"></div>
+                        <div class="line2 ham"></div>
+                        <div class="line3 ham"></div>
+                    </button>
+
+                    <div class="collapse navbar-collapse justify-content-end" id="myNavbar">
+
+                        <ul class="navbar-nav ml-aulo">
+
+                            <li class="nav-item">
+                                <a class="nav-link m-2 menu-item fw-bold" href="../index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link m-2 menu-item nav-active active fw-bold" href="#"> Homebanking </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link m-2 menu-item fw-bold" href="#"> Services </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link m-2 menu-item fw-bold" href="/web/dashboard/login.html"> <svg
+                                        xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
+                                        class="bi bi-person-circle" viewBox="0 0 20 20">
+                                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                                        <path fill-rule="evenodd"
+                                            d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                                    </svg> </a>
+                            </li>
+
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+
+            </nav>
+
+            <section class="hero-section mb-5">
+
+                <div class="container-fluid">
+
+                    <div class="row justify-content-center">
+
+                        <div class="col-12">
+                            <h1 class="text-hero text-center text-white text-uppercase"> navbar </h1>
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+
+            </section>
+        </header>
+        <nav>
+            <nav class="navbar-expand-lg navbar-light bg-light">
+                <!-- Container wrapper -->
+                <div class="container-fluid">
+                    <!-- Toggle button -->
+                    <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+                        data-mdb-target="#navbarCenteredExample" aria-controls="navbarCenteredExample"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-bars"></i>
+                    </button>
+
+                    <!-- Collapsible wrapper -->
+                    <div class="collapse navbar-collapse justify-content-center" id="navbarCenteredExample">
+                        <!-- Left links -->
+                        <ul class="navbar-nav mb-2 mb-lg-0">
+
+
+
+                        </ul>
+                        <!-- Left links -->
+                    </div>
+                    <!-- Collapsible wrapper -->
+                </div>
+                <!-- Container wrapper -->
+            </nav>
+        </nav>
+
+        <main>
+
+
+
+            <div class="container main-content position-relative max-height-vh-100 h-100 border-radius-lg mt-5"> </div>
+            <div class="container mt-5">
+                <div class="row ">
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-xl-6 mb-xl-0 mb-4">
+                                <div class="card bg-transparent shadow-xl">
+                                    <div class="overflow-hidden position-relative border-radius-xl">
+                                        <span class="mask bg-gradient-dark opacity-10 mt-2"></span>
+                                        <div class="card-body position-relative z-index-1 p-3  d-flex flex-wrap "
+                                            style="background: linear-gradient(rgba(92, 90, 90, 0.388), rgba(0, 0, 0, 0.371)),url('/web/img/fondo-login.webp') ">
+                                            <div class="d-flex flex-wrap row container-fluid ">
+                                                <div v-if="clients.name == 'Melba'" style="width: 50%;"><img
+                                                        class="mt-5" src="/web/img/femaleProfile.svg"
+                                                        alt="femaleProfile" style="border-radius: 60%;">
+                                                </div>
+                                                <div v-else style="width: 50%;" class="d-flex"><img
+                                                        src="/web/img/maleProfile.svg" alt="femaleProfile"
+                                                        style="border-radius: 60%;">
+                                                </div>
+                                                <div class="" style="width: 50%;">
+                                                    <form>
+                                                        <h6 class="heading-small  mb-4 text-light fw-bold">User
+                                                            information</h6>
+                                                        <div class="pl-lg-4">
+                                                            <div class="row">
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group focused">
+                                                                        <label
+                                                                            class="form-control-label  text-light fw-bold t"
+                                                                            for="input-username">First name</label>
+                                                                        <label id="input-username"
+                                                                            class="form-control form-control-alternative fs-4 text-light"
+                                                                            placeholder="Username" value="lucky.jesse">
+                                                                            {{clients.name}}
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-lg-6">
+                                                                        <div class="form-group focused">
+                                                                            <label
+                                                                                class="form-control-label text-light fw-bold"
+                                                                                for="input-last-name">Last name</label>
+                                                                            <label id="input-last-name"
+                                                                                class="form-control form-control-alternative fs-4 text-light"
+                                                                                value="Jesse">{{clients.lastName}}
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <div class="col-lg-9">
+                                                                    <div class="form-group">
+                                                                        <label
+                                                                            class="form-control-label text-light fw-bold "
+                                                                            for="input-email">Email address</label>
+                                                                        <label type="email" id="input-email"
+                                                                            class="form-control form-control-alternative fs-6 text-light"
+                                                                            placeholder="jesse@example.com">
+                                                                            {{clients.email}}</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </form>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="row">
+                                    <div
+                                        class="col-md-12 col-12 d-flex justify-content-center flex-wrap justify-content-evenly">
+                                        <div class="card mt-5" v-for="account in accounts" style="width: 11rem;">
+                                            <div class="card-header mx-4 p-3 text-center">
+                                                <div
+                                                    class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
+                                                    <i class="material-icons opacity-10">account_balance</i>
+                                                </div>
+                                            </div>
+                                            <div class="card-body pt-0 p-3 text-center">
+                                                <h6 class="text-center mb-0">{{account.number}}</h6>
+                                                <span class="text-xs">Your balance</span>
+                                                <hr class="horizontal dark my-3">
+                                                <h5 class="mb-0">${{account.balance}}</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-12 mb-lg-0 mb-4">
+                                <div class="card mt-4">
+                                    <div class="card-header pb-0 p-3">
+                                        <div class="row">
+                                            <div class="col-6 d-flex align-items-center">
+                                                <h6 class="mb-0">Payment Method</h6>
+                                            </div>
+                                            <div class="col-6 text-end">
+                                                <a class="btn bg-gradient-dark mb-0" href="javascript:;"><i
+                                                        class="material-icons text-sm">add</i>&nbsp;&nbsp;Add New
+                                                    Card</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body p-0">
+                                        <div class="row d-flex flex-wrap mt-1">
+                                            <div class="col-md-12 mb-md-0 mb-4 ">
+                                                <div class="d-flex gap-5 justify-content-center">
+                                                    <div class="flip mt-3" v-for="card in cards">
+                                                        <div class="front p-0 gold"
+                                                            v-bind:class="{'gold': card.color == 'GOLD', 'titanium':card.color == 'TITANIUM', 'silver':card.color == 'SILVER'}">
+                                                            <div class="strip-bottom">
+                                                            </div>
+                                                            <div class="strip-top"></div>
+                                                            <svg class="logo" width="40" height="40"
+                                                                viewbox="0 0 17.5 16.2">
+                                                                <path
+                                                                    d="M3.2 0l5.4 5.6L14.3 0l3.2 3v9L13 16.2V7.8l-4.4 4.1L4.5 8v8.2L0 12V3l3.2-3z"
+                                                                    fill="white"></path>
+                                                            </svg>
+
+                                                            <div class="investor text-shadow">Tokio Bank</div>
+                                                            <h2 class="text-center text-shadow p-0 m-0">{{card.color}}
+                                                            </h2>
+                                                            <div class="chip ">
+                                                                <div class="chip-line"></div>
+                                                                <div class="chip-line"></div>
+                                                                <div class="chip-line"></div>
+                                                                <div class="chip-line"></div>
+                                                                <div class="chip-main"></div>
+                                                            </div>
+                                                            <svg class="wave" viewBox="0 3.71 26.959 38.787"
+                                                                width="26.959" height="38.787" fill="white">
+                                                                <path
+                                                                    d="M19.709 3.719c.266.043.5.187.656.406 4.125 5.207 6.594 11.781 6.594 18.938 0 7.156-2.469 13.73-6.594 18.937-.195.336-.57.531-.957.492a.9946.9946 0 0 1-.851-.66c-.129-.367-.035-.777.246-1.051 3.855-4.867 6.156-11.023 6.156-17.718 0-6.696-2.301-12.852-6.156-17.719-.262-.317-.301-.762-.102-1.121.204-.36.602-.559 1.008-.504z">
+                                                                </path>
+                                                                <path
+                                                                    d="M13.74 7.563c.231.039.442.164.594.343 3.508 4.059 5.625 9.371 5.625 15.157 0 5.785-2.113 11.097-5.625 15.156-.363.422-1 .472-1.422.109-.422-.363-.472-1-.109-1.422 3.211-3.711 5.156-8.551 5.156-13.843 0-5.293-1.949-10.133-5.156-13.844-.27-.309-.324-.75-.141-1.114.188-.367.578-.582.985-.542h.093z">
+                                                                </path>
+                                                                <path
+                                                                    d="M7.584 11.438c.227.031.438.144.594.312 2.953 2.863 4.781 6.875 4.781 11.313 0 4.433-1.828 8.449-4.781 11.312-.398.387-1.035.383-1.422-.016-.387-.398-.383-1.035.016-1.421 2.582-2.504 4.187-5.993 4.187-9.875 0-3.883-1.605-7.372-4.187-9.875-.321-.282-.426-.739-.266-1.133.164-.395.559-.641.984-.617h.094zM1.178 15.531c.121.02.238.063.344.125 2.633 1.414 4.437 4.215 4.437 7.407 0 3.195-1.797 5.996-4.437 7.406-.492.258-1.102.07-1.36-.422-.257-.492-.07-1.102.422-1.359 2.012-1.075 3.375-3.176 3.375-5.625 0-2.446-1.371-4.551-3.375-5.625-.441-.204-.676-.692-.551-1.165.122-.468.567-.785 1.051-.742h.094z">
+                                                                </path>
+                                                            </svg>
+                                                            <div class="card-number">
+                                                                <div class="section text-shadow">{{card.number}}</div>
+                                                            </div>
+                                                            <div class="end">
+                                                                <span class="end-text">exp: </span>
+                                                                <span class="end-date"> {{card.fromDate}} </span>
+                                                                <span class="end-text"> end: </span>
+                                                                <span class="end-date"> {{card.thruDate}} </span>
+                                                            </div>
+                                                            <div class="card-holder text-shadow">{{card.cardHolder}}
+                                                            </div>
+                                                            <div class="master">
+                                                                <div class="text-shadow p-2"> {{card.type}} </div>
+                                                                <div class="circle master-red"></div>
+                                                                <div class="circle master-yellow"></div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div :class="{'backGold': card.color == 'GOLD', 'backTitanium':card.color == 'TITANIUM', 'silver':card.color == 'SILVER'}"
+                                                            class="back">
+                                                            <div class="strip-black"></div>
+                                                            <div class="ccv">
+                                                                <label>ccv</label>
+                                                                <div>{{card.cvv}}</div>
+                                                            </div>
+                                                            <div class="terms">
+                                                               
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="col-lg-2">
+                        <div class="card h-100">
+                            <div class="card-header pb-0 p-3">
+                                <div class="row">
+                                    <div class="col-12 d-flex align-items-center">
+                                        <h6 class=" text-center">Yours Moves</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body p-3 pb-0">
+                                <ul class="list-group" v-for="client in clients">
+                                    <li
+                                        class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+                                        <div class="d-flex flex-column">
+                                            <h6 class="mb-1 text-dark font-weight-bold text-sm">March, 01, 2020</h6>
+                                            <span class="text-xs">#MS-415646</span>
+                                        </div>
+                                        <div class="d-flex align-items-center text-sm">
+                                            $180
+                                            <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i
+                                                    class="material-icons text-lg position-relative me-1">picture_as_pdf</i>
+                                                PDF</button>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="row">
+                    <div class="col-md-7 mt-4">
+                        <div class="card">
+                            <div class="card-header pb-0 px-3">
+                                <h6 class="mb-0">Loans Information</h6>
+                            </div>
+                            <div class="card-body pt-4 p-3">
+                                <ul class="list-group">
+                                    <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg"
+                                        v-for="loan in loans">
+                                        <div class="d-flex flex-column">
+                                            <h6 class="mb-3 text-sm">{{loan.nameLoan}}</h6>
+                                            <span class="mb-2 text-xs">Amonts request:<span
+                                                    class="text-dark font-weight-bold ms-sm-2">${{loan.amountsRequest}}</span></span>
+                                            <span class="mb-2 text-xs">payments request <span
+                                                    class="text-dark ms-sm-2 font-weight-bold">{{loan.paymentsRequest}}</span></span>
+                                            <span class="text-xs">VAT Number: <span
+                                                    class="text-dark ms-sm-2 font-weight-bold">FRB1235476</span></span>
+                                        </div>
+                                        <div class="ms-auto text-end">
+                                            <a class="btn btn-link text-danger text-gradient px-3 mb-0"
+                                                href="javascript:;"><i
+                                                    class="material-icons text-sm me-2">delete</i>Delete</a>
+                                            <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i
+                                                    class="material-icons text-sm me-2">edit</i>Edit</a>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5 mt-4">
+                        <div class="card h-100 mb-4">
+                            <div class="card-header pb-0 px-3">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="mb-0">Your Transaction's</h6>
+                                    </div>
+                                    <div
+                                        class="col-md-6 d-flex justify-content-start justify-content-md-end align-items-center">
+                                        <i class="material-icons me-2 text-lg">date_range</i>
+                                        <small></small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body pt-4 p-3">
+                                <h6 class="text-uppercase text-body text-xs font-weight-bolder mb-3">Newest</h6>
+                                <ul class="list-group" v-for="account in accounts">
+                                    <li v-for="transaction in account.transaction"
+                                        class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+                                        <div class="d-flex align-items-center">
+                                            <div v-if="transaction.type == 'DEBIT'"
+                                                class="btn btn-icon-only btn-rounded btn-outline-danger mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center">
+                                                <i class="material-icons text-lg">expand_more</i>
+                                            </div>
+                                            <div v-else="transaction.type == 'CREDIT'"
+                                                class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center">
+                                                <i class="material-icons text-lg">expand_less</i>
+                                            </div>
+                                            <div class="d-flex flex-column">
+                                                <h6 class="mb-1 text-dark text-sm">{{transaction.type}}</h6>
+                                                <span class="text-xs">{{transaction.date}}</span>
+
+                                            </div>
+                                        </div>
+                                        <div v-if="transaction.type == 'DEBIT'"
+                                            class="d-flex align-items-center text-danger text-gradient text-sm font-weight-bold">
+                                            {{transaction.amount}}
+                                        </div>
+                                        <div v-else=""
+                                            class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
+                                            +{{transaction.amount}}
+                                        </div>
+                                    </li>
+                                </ul>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        <footer class="bg-dark">hola</footer>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="/web/dashboard/dashboard.js"></script>
+</body>
+
+</html>

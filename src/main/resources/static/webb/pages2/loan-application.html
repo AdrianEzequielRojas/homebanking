@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="/webb/assets/styles/loans.css">
+    <link rel="shortcut icon" href="/web/img/logo_arbol.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <meta charset="UTF-8">
+    <title>Cards</title>
+</head>
+
+<body>
+    <div id="app">
+        <header>
+
+            <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css?family=Dosis:300" rel="stylesheet">
+
+            <nav class="navbar navbar-default navbar-expand-lg nav-menu fixed-top">
+
+                <div class="container-fluid">
+
+                    <a href="#" class="navbar-brand text-uppercase "> <img src="/webb/assets/img/TokioBank_logo.svg"
+                            alt="bank" style="width: 25rem;"> </a>
+
+                    <button class="navbar-toggler nav-button" type="button" data-toggle="collapse"
+                        data-target="#myNavbar">
+                        <div class="line1 ham"></div>
+                        <div class="line2 ham"></div>
+                        <div class="line3 ham"></div>
+                    </button>
+
+                    <div class="collapse navbar-collapse justify-content-end" id="myNavbar">
+
+                        <ul class="navbar-nav ml-aulo">
+
+                            <li class="nav-item">
+                                <a class="nav-link m-2 menu-item  fw-bold" href="/webb/pages/index.html"> Home
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link m-2 menu-item nav-active active fw-bold" href="#"> Homebanking </a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+
+            </nav>
+
+            <section class="hero-section">
+
+                <div class="container-fluid">
+
+                    <div class="row justify-content-center">
+                        <h1 class="text-hero text-center text-white text-uppercase">Loans</h1>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <nav class="navbar navbar-default navbar-expand-lg nav-menu p-0">
+
+                <div class="container-fluid">
+
+                    <button class="navbar-toggler nav-button" type="button" data-toggle="collapse"
+                        data-target="#myNavbar">
+                        <div class="line1 ham"></div>
+                        <div class="line2 ham"></div>
+                        <div class="line3 ham"></div>
+                    </button>
+
+                    <div class="collapse navbar-collapse justify-content-center" id="myNavbar">
+                        <ul class="navbar-nav ml-aulo">
+                            <li class="nav-item">
+                                <a class="nav-link m-2 menu-item  fw-bold" href="/webb/pages/index.html"> Home
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link m-2 menu-item  fw-bold" href="/webb/pages/homebanking.html"> Profile
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link m-2 menu-item fw-bold" href="/webb/pages/accounts.html"> Accounts
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link m-2 menu-item fw-bold" href="/webb/pages/cards.html"> Cards </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link m-2 menu-item fw-bold" href="/webb/pages/transactions.html">
+                                    Transactions </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link m-2 menu-item fw-bold  nav-active" href="/webb/pages/loans.html">
+                                    Loans </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </nav>
+        </header>
+
+        <main class="container-fluid d-flex">
+           <!--  <div class="container-fluid  bg-dark">
+                <div class="cards-wrapper  d-flex bg-danger">
+                    <div class="card-grid-space gap-4">
+                        <div class="container-fluid card " v-for="loan in loans">
+                            <div>
+                                <h2>{{loan.nameLoan}}</h2>
+                                <p>The syntax of a language is how it works. How to actually write it. Learn HTML
+                                    syntax…
+                                </p>
+                                <div class="date">6 Oct 2017</div>
+                                <div class="tags">
+                                    <div class="tag">HTML</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <div class="container-fluid">
+                <form class="d-flex row gap-5" @submit.prevent="">
+                    <h1> Sign Up </h1>
+
+                    <fieldset>
+                        <legend><span class="number">1</span> Choose your type of loan</legend>
+                        <select v-model="loanNameChoosed">
+                            <option v-for="loan in loans" :value="loan.name">
+                                {{loan.name}}
+                            </option>
+                        </select>
+
+                    </fieldset>
+
+                    <fieldset>
+                        <legend><span class="number">2</span>
+                            Choose the amount of payments</legend>
+
+                        <select v-if="loanNameChoosed == 'Mortgage'" v-model="loanPayments"
+                            v-for="loan in loanMortgage">
+                            <option v-for="payments in loan.payments" :value="payments">
+                                {{payments}}
+                            </option>
+                        </select>
+
+                        <select v-if="loanNameChoosed == 'Car'" v-model="loanPayments" v-for="loan in loanCar">
+                            <option v-for="payments in loan.payments" :value="payments">
+                                {{payments}}
+                            </option>
+                        </select>
+
+                        <select v-if="loanNameChoosed == 'Personal'" v-model="loanPayments"
+                            v-for="loan in loanPersonal">
+                            <option v-for="payments in loan.payments" :value="payments">
+                                {{payments}}
+                            </option>
+                        </select>
+                    </fieldset>
+                    <fieldset>
+                        <legend><span class="number">3</span> Put  your amount</legend>
+                        <input type="number" v-model="amount" :value="amount">
+                    </fieldset>
+
+                    <fieldset>
+                        <legend><span class="number">4</span>
+                            Choose your account </legend>
+                        <select v-model="accountNumberDestiny" :value="accountNumberDestiny">
+                            <option :value="account.number" v-for="account in accounts">{{account.number}}</option>
+                        </select>
+
+                    </fieldset>
+                    <fieldset>
+                        <h2>${{amount}}</h2>
+                    </fieldset>
+
+                    <button class="btn" style="background-color:  #f9f8f7;" @click="getLoan()">Sign Up</button>
+
+                </form>
+            </div>
+        </main>
+
+        <footer class="bg-dark p-5" style="text-align: center;">
+            <h5 class="text-light text-center">Rojas Adrian Ezequiel-Task2</h5>
+        </footer>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="/webb/assets/js/loan-application.js"></script>
+
+</body>
+
+</html>

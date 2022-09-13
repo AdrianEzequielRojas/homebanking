@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles/homebanking.css">
+<link rel="shortcut icon" href="/web/img/logo_arbol.png" type="image/x-icon">
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Dosis:300" rel="stylesheet">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/c8ee3dd930.js"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+
+    <div id="app">
+
+        <header class="">
+
+            <section class="hero-section">
+                <div class="row justify-content-center">
+
+                </div>
+            </section>
+            <nav class="navbar navbar-default navbar-expand-lg nav-menu p-0">
+
+                <div class="container-fluid">
+
+                    <button class="navbar-toggler nav-button" type="button" data-toggle="collapse"
+                        data-target="#myNavbar">
+                        <div class="line1 ham"></div>
+                        <div class="line2 ham"></div>
+                        <div class="line3 ham"></div>
+                    </button>
+
+                    <div class="collapse navbar-collapse justify-content-center" id="myNavbar">
+
+                        <ul class="navbar-nav ml-aulo">
+                            <li class="nav-item">
+                                <a class="nav-link m-2 menu-item  fw-bold" href="/webb/pages/index.html"> Home
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link m-2 menu-item nav-active active fw-bold" href="#"> Profile </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link m-2 menu-item fw-bold" href="/webb/pages/accounts.html"> Accounts
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link m-2 menu-item fw-bold" href="/webb/pages/cards.html"> Cards </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link m-2 menu-item fw-bold" href="/webb/pages/transactions.html">
+                                    Transactions </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link m-2 menu-item fw-bold" href="/webb/pages/loans.html"> Loans </a>
+                            </li>
+                            <li class="nav-item">
+                                <button @click="logout()" style="border: none; background: none;">
+                                    <a class="nav-link m-2 menu-item fw-bold" href="./login.html">Logout</a>
+                                </button>
+                            </li>
+
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+
+        </header>
+
+        <main class="d-flex flex-wrap justify-content-center gap-0">
+            <div class="container-fluid  d-flex flex-wrap justify-content-center">
+                <h2 class="text-center mb-5">Your Information</h2>
+                <div class="container-fluid d-flex flex-wrap">
+                    <div class="container-fluid d-flex flex-wrap gap-2  justify-content-center w-100">
+                        <!-- <div class="bg-light"> -->
+                        <div class="card mt-5 boxSha p-2 scale-in-hor-left" style="height: 15rem;"
+                            v-for="account in activeAccounts">
+                            <div class="title">
+                                <h4 class="text-bold">{{account.number}}</h4>
+                            </div>
+                            <div class="content">
+                                <div class="social">
+
+                                    <h4>Account Date</h4>
+                                    <div>
+                                        <h4>{{account.creationDate}}</h4>
+                                    </div>
+                                </div>
+
+                                <div class="social">
+                                    <h4>Account Balance</h4>
+                                    <div>
+                                        <h3>${{account.balance}}</h3>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="container-fluid mt-5 d-flex flex-wrap mb-3"
+                    style="border: none;border-top: 1px solid #000;">
+                    <div class="container-fluid d-flex flex-wrap justify-content-center gap-5"
+                        style="align-items: center;">
+                        <div class="cards card mt-3 "
+                            style="height: 18rem; border: none; background-color: transparent;" v-for="card in cardActive">
+                            <div class="contents ">
+                                <div class="front p-0 gold"
+                                    v-bind:class="{'gold': card.color == 'GOLD', 'titanium':card.color == 'TITANIUM', 'silver':card.color == 'SILVER'}">
+                                    <div class="strip-bottom">
+                                    </div>
+                                    <div class="strip-top"></div>
+                                    <svg class="logo" width="40" height="40" viewbox="0 0 17.5 16.2">
+                                        <path
+                                            d="M3.2 0l5.4 5.6L14.3 0l3.2 3v9L13 16.2V7.8l-4.4 4.1L4.5 8v8.2L0 12V3l3.2-3z"
+                                            fill="white"></path>
+                                    </svg>
+
+                                    <div class="investor text-shadow">Tokio Bank</div>
+                                    <h2 class="text-center text-shadow p-0 m-0">{{card.color}}
+                                    </h2>
+                                    <div class="chip ">
+                                        <div class="chip-line"></div>
+                                        <div class="chip-line"></div>
+                                        <div class="chip-line"></div>
+                                        <div class="chip-line"></div>
+                                        <div class="chip-main"></div>
+                                    </div>
+                                    <svg class="wave" viewBox="0 3.71 26.959 38.787" width="26.959" height="38.787"
+                                        fill="white">
+                                        <path
+                                            d="M19.709 3.719c.266.043.5.187.656.406 4.125 5.207 6.594 11.781 6.594 18.938 0 7.156-2.469 13.73-6.594 18.937-.195.336-.57.531-.957.492a.9946.9946 0 0 1-.851-.66c-.129-.367-.035-.777.246-1.051 3.855-4.867 6.156-11.023 6.156-17.718 0-6.696-2.301-12.852-6.156-17.719-.262-.317-.301-.762-.102-1.121.204-.36.602-.559 1.008-.504z">
+                                        </path>
+                                        <path
+                                            d="M13.74 7.563c.231.039.442.164.594.343 3.508 4.059 5.625 9.371 5.625 15.157 0 5.785-2.113 11.097-5.625 15.156-.363.422-1 .472-1.422.109-.422-.363-.472-1-.109-1.422 3.211-3.711 5.156-8.551 5.156-13.843 0-5.293-1.949-10.133-5.156-13.844-.27-.309-.324-.75-.141-1.114.188-.367.578-.582.985-.542h.093z">
+                                        </path>
+                                        <path
+                                            d="M7.584 11.438c.227.031.438.144.594.312 2.953 2.863 4.781 6.875 4.781 11.313 0 4.433-1.828 8.449-4.781 11.312-.398.387-1.035.383-1.422-.016-.387-.398-.383-1.035.016-1.421 2.582-2.504 4.187-5.993 4.187-9.875 0-3.883-1.605-7.372-4.187-9.875-.321-.282-.426-.739-.266-1.133.164-.395.559-.641.984-.617h.094zM1.178 15.531c.121.02.238.063.344.125 2.633 1.414 4.437 4.215 4.437 7.407 0 3.195-1.797 5.996-4.437 7.406-.492.258-1.102.07-1.36-.422-.257-.492-.07-1.102.422-1.359 2.012-1.075 3.375-3.176 3.375-5.625 0-2.446-1.371-4.551-3.375-5.625-.441-.204-.676-.692-.551-1.165.122-.468.567-.785 1.051-.742h.094z">
+                                        </path>
+                                    </svg>
+                                    <div class="card-number">
+                                        <div class="section text-shadow">{{card.number}}</div>
+                                    </div>
+                                    <div class="end">
+                                        <span class="end-text">exp: </span>
+                                        <span class="end-date"> {{card.fromDate}} </span>
+                                        <span class="end-text"> end: </span>
+                                        <span class="end-date"> {{card.thruDate}} </span>
+                                    </div>
+                                    <div class="card-holder text-shadow">{{card.cardHolder}}
+                                    </div>
+                                    <div class="master">
+                                        <div class="text-shadow p-2"> {{card.type}} </div>
+                                        <div class="circle master-red"></div>
+                                        <div class="circle master-yellow"></div>
+                                    </div>
+                                </div>
+                                <div :class="{'backGold': card.color == 'GOLD', 'backTitanium':card.color == 'TITANIUM', 'silver':card.color == 'SILVER'}"
+                                    class="back">
+                                    <div class="strip-black"></div>
+                                    <div class="ccv">
+                                        <label>ccv</label>
+                                        <div>{{card.cvv}}</div>
+                                    </div>
+                                    <div class="terms">
+                                        <p class="text-dark">This card is property of Monzo
+                                            Bank, Wonderland. Misuse is criminal
+                                            offence. If
+                                            found, please return to Monzo Bank or to the nearest
+                                            bank with MasterCard logo.
+                                        </p>
+                                        <p>Use of this card is subject to the credit card
+                                            agreement.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-fluid d-flex justify-content-evenly w-50 mb-5 mt-5 p-2"
+                        style="border-top: 1px solid #000;">
+                        <div class="card w-100">
+                            <div class="card-header px-3 ht">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="mb-0">Your Transaction's</h6>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="card-body pt-4 p-3">
+                                <h6 class="text-uppercase text-body text-xs font-weight-bolder mb-3">Newest</h6>
+                                <ul class="list-group" v-for="account in accounts">
+                                    <li v-for="transaction in account.transaction"
+                                        class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+                                        <div class="d-flex align-items-center">
+                                            <div v-if="transaction.type == 'DEBIT'"
+                                                class="btn btn-icon-only btn-rounded btn-outline-danger mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center">
+                                                <i class="material-icons text-lg">D</i>
+                                            </div>
+                                            <div v-else="transaction.type == 'CREDIT'"
+                                                class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center">
+                                                <i class="material-icons text-lg">C</i>
+                                            </div>
+                                            <div class="d-flex flex-column">
+                                                <h6 class="mb-1 text-dark text-sm">{{transaction.type}}</h6>
+                                                <span class="text-xs">{{transaction.date}}</span>
+                                                <span class="text-xs">{{account.number}}</span>
+                                            </div>
+                                        </div>
+                                        <div v-if="transaction.type == 'DEBIT'"
+                                            class="d-flex align-items-center text-danger text-gradient text-sm font-weight-bold">
+                                            {{transaction.amount}}
+                                        </div>
+                                        <div v-else=""
+                                            class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
+                                            +{{transaction.amount}}
+                                        </div>
+                                    </li>
+                                </ul>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-fluid w-50 mt-5 p-3" style="border-top: 1px solid #000;">
+                        <div class="card w-100">
+                            <div class="card-header px-3 ht">
+                                <div class="col">
+                                    <div class="col-md-6">
+                                        <h6 class="mb-0">Your Loan's</h6>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="card-body pt-4 p-3">
+                                <ul class="list-group">
+                                    <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg d-flex justify-content-between"
+                                        v-for="loan in loans">
+                                        <div class="d-flex flex-column">
+                                            <h6 class="mb-3 text-sm">{{loan.nameLoan}}</h6>
+                                            <span class="mb-2 text-xs">Amonts request:<span
+                                                    class="text-dark font-weight-bold ms-sm-2">${{loan.amountsRequest}}</span></span>
+                                            <span class="mb-2 text-xs">payments request <span
+                                                    class="text-dark ms-sm-2 font-weight-bold">{{loan.paymentsRequest}}</span></span>
+                                        </div>
+                                        <div class="">
+                                            <svg v-if="loan.nameLoan == 'Mortgage'"
+                                                xmlns="http://www.w3.org/2000/svg" width="110" height="110"
+                                                fill="currentColor" class="bi bi-bank" viewBox="0 0 16 16">
+                                                <path
+                                                    d="m8 0 6.61 3h.89a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v7a.5.5 0 0 1 .485.38l.5 2a.498.498 0 0 1-.485.62H.5a.498.498 0 0 1-.485-.62l.5-2A.501.501 0 0 1 1 13V6H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 3h.89L8 0ZM3.777 3h8.447L8 1 3.777 3ZM2 6v7h1V6H2Zm2 0v7h2.5V6H4Zm3.5 0v7h1V6h-1Zm2 0v7H12V6H9.5ZM13 6v7h1V6h-1Zm2-1V4H1v1h14Zm-.39 9H1.39l-.25 1h13.72l-.25-1Z" />
+                                            </svg>
+                                            <svg v-else-if="loan.nameLoan == 'Personal'"
+                                                xmlns="http://www.w3.org/2000/svg" width="110" height="110"
+                                                fill="currentColor" class="bi bi-file-person" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M12 1a1 1 0 0 1 1 1v10.755S12 11 8 11s-5 1.755-5 1.755V2a1 1 0 0 1 1-1h8zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z" />
+                                                <path d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                                            </svg>
+                                            <svg v-else="loan.nameLoan == 'Car'"
+                                                xmlns="http://www.w3.org/2000/svg" width="110" height="110"
+                                                fill="currentColor" class="bi bi-car-front" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M4 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm10 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM6 8a1 1 0 0 0 0 2h4a1 1 0 1 0 0-2H6ZM4.862 4.276 3.906 6.19a.51.51 0 0 0 .497.731c.91-.073 2.35-.17 3.597-.17 1.247 0 2.688.097 3.597.17a.51.51 0 0 0 .497-.731l-.956-1.913A.5.5 0 0 0 10.691 4H5.309a.5.5 0 0 0-.447.276Z" />
+                                                <path fill-rule="evenodd"
+                                                    d="M2.52 3.515A2.5 2.5 0 0 1 4.82 2h6.362c1 0 1.904.596 2.298 1.515l.792 1.848c.075.175.21.319.38.404.5.25.855.715.965 1.262l.335 1.679c.033.161.049.325.049.49v.413c0 .814-.39 1.543-1 1.997V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.338c-1.292.048-2.745.088-4 .088s-2.708-.04-4-.088V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.892c-.61-.454-1-1.183-1-1.997v-.413a2.5 2.5 0 0 1 .049-.49l.335-1.68c.11-.546.465-1.012.964-1.261a.807.807 0 0 0 .381-.404l.792-1.848ZM4.82 3a1.5 1.5 0 0 0-1.379.91l-.792 1.847a1.8 1.8 0 0 1-.853.904.807.807 0 0 0-.43.564L1.03 8.904a1.5 1.5 0 0 0-.03.294v.413c0 .796.62 1.448 1.408 1.484 1.555.07 3.786.155 5.592.155 1.806 0 4.037-.084 5.592-.155A1.479 1.479 0 0 0 15 9.611v-.413c0-.099-.01-.197-.03-.294l-.335-1.68a.807.807 0 0 0-.43-.563 1.807 1.807 0 0 1-.853-.904l-.792-1.848A1.5 1.5 0 0 0 11.18 3H4.82Z" />
+                                            </svg>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+    </div>
+
+
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-content pt-5 pb-5">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 mb-50">
+                        <div class="footer-widget">
+                            <div class="footer-logo">
+                                <a href="index.html"><img src="../assets/img/TokioBank_logo.svg" class="img-fluid"
+                                        alt="logo"></a>
+                            </div>
+                            <div class="footer-text">
+                                <p>Lorem ipsum dolor sit amet, consec tetur adipisicing elit, sed do eiusmod tempor
+                                    incididuntut consec tetur adipisicing
+                                    elit,Lorem ipsum dolor sit amet.</p>
+                            </div>
+                            <div class="footer-social-icon">
+                                <span>Follow us</span>
+                                <a href="#"><i class="fab fa-facebook-f facebook-bg"></i></a>
+                                <a href="#"><i class="fab fa-twitter twitter-bg"></i></a>
+                                <a href="#"><i class="fab fa-google-plus-g google-bg"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-4 col-lg-4 col-md-6 mb-50">
+                        <div class="footer-widget">
+                            <div class="footer-widget-heading">
+                                <h3>Subscribe</h3>
+                            </div>
+                            <div class="footer-text mb-25">
+                                <p>Don’t miss to subscribe to our new feeds, kindly fill the form below.</p>
+                            </div>
+                            <div class="subscribe-form">
+                                <form action="#">
+                                    <input type="text" placeholder="Email Address">
+                                    <button><i class="fab fa-telegram-plane"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1500,
+            once: true
+        });
+
+    </script>
+    <!-- Link to page
+    ================================================== -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="/webb/assets/js/homebanking.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="/webb/assets/img/logo_arbol.png">
+  <title>
+    Sign Up
+  </title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link id="pagestyle" href="/webb/assets/styles/soft-ui-dashboard.css" rel="stylesheet" />
+</head>
+
+<body class="">
+  <div id="app">
+    <main class="main-content  mt-0">
+      <section class="min-vh-100">
+        <div class="page-header align-items-start min-vh-50 pt- pb-11 m-3 border-radius-lg"
+        style="background-image: url('/webb/assets/img/fondo-login.webp'); background-position: bottom;">
+        <div class="falling-leaves">
+            <span class="mask opacity-6"></span>
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-lg-5 text-center mx-auto">
+                  <h1 class="text-dark  mt-5">Welcome!</h1>
+                  <p> This is your Bank</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row mt-lg-n10 mt-md-n11 mt-n10">
+            <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
+              <div class="card z-index-0">
+                <div class="card-header text-center pt-4">
+                  <h5>
+                    Sign up with your email!</h5>
+                </div>
+               
+                <div class="row px-xl-5 px-sm-4 px-3">
+                  <div class="mt-2 position-relative text-center">
+                    <p
+                      class="text-sm font-weight-bold mb-2 text-secondary text-border d-inline z-index-2 bg-white px-3">
+
+                    </p>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <form role="form text-left">
+                    <div class="mb-3">
+                      <input type="text" class="form-control" placeholder="Name" aria-label="Name"
+                        aria-describedby="email-addon" v-model="nameValue"   required>
+                    </div>
+                    <div class="mb-3">
+                      <input type="text" class="form-control" aria-label="LastName"
+                        aria-describedby="email-addon"  v-model="lastNameValue" type="text" placeholder="Last name"  required>
+                    </div>
+                    <div class="mb-3">
+                      <input class="form-control" placeholder="Email" aria-label="Email"
+                        aria-describedby="email-addon" v-model="newEmail" type="text" placeholder="Email" required>
+                    </div>
+                    <div class="mb-3">
+                      <input type="password" class="form-control" placeholder="Password" aria-label="Password"
+                        aria-describedby="password-addon" v-model="newPassword" required>
+                    </div>
+                    <div class="form-check form-check-info text-left">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
+                      <label class="form-check-label" for="flexCheckDefault">
+                        I agree the <a href="javascript:;" class="text-dark font-weight-bolder">Terms and Conditions</a>
+                      </label>
+                    </div>
+                    <div class="text-center">
+                      <button type="button" class="btn bg-gradient-dark w-100 my-4 mb-2" name="register" id="register" @click="register()">Sign up</button>
+                    
+                    </div>
+                    <p class="text-sm mt-3 mb-0">Already have an account? <a href="/webb/pages/login.html"
+                        class="text-dark font-weight-bolder">Sign in</a></p>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer pt-3  ">
+      <div class="container-fluid">
+        <div class="row align-items-center justify-content-lg-between">
+          <div class="col-lg-6 mb-lg-0 mb-4">
+            <div class="copyright text-center text-sm text-muted text-lg-start">
+              ©
+              <script>
+                document.write(new Date().getFullYear())
+              </script>,
+              made with <i class="fa fa-heart"></i> by
+              <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">MindHub Coohort 30</a>
+              for Adrian Ezequiel Rojas.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </footer>
+  </div>
+
+
+  <!--   Core JS Files   -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/vue@3"></script>
+  <script src="/webb/assets/js/login.js"></script>
+</body>
+
+</html>

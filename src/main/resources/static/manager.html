@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>Homebanking</title>
+</head>
+
+<body class="d-flex justify-content-center">
+    <div id="app">
+        <header>
+
+        </header>
+        <main class="container d-flex justify-content-center row " style="align-items: center;">
+            <h1> Client Manager</h1>
+            <div class="container">
+                <form @submit.prevent="addClients()">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp"
+                            v-model="nameValue">
+
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" id="exampleInputPassword1" v-model="lastNameValue">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword2" class="form-label">Email</label>
+                        <input type="email" class="form-control" required id="exampleInputPassword2"
+                            v-model="emailValue">
+                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword3" class="form-label">Phone</label>
+                        <input type="text" class="form-control" id="exampleInputPassword3" v-model="phone">
+                    </div>
+
+                    <button type="submit" class="btn btn-dark">Submit</button>
+                </form>
+            </div>
+            <div class="container mt-5">
+                <section>
+                    <h2>Client List</h2>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Edit information</i>
+                                </th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Last Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">phone</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="client in clients">
+                                <td class="d-flex gap-3">
+                                    <button class="btn btn-dark" @click="editClients(client)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                                            <path
+                                                d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
+                                        </svg>
+                                        </i>
+                                    </button>
+                                    <button class="btn btn-dark" @click="deleteClients(client)"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                            <path
+                                                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                            <path fill-rule="evenodd"
+                                                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                                        </svg></button>
+                                    <button class="btn btn-dark">
+                                        <a :href="'/web/accounts.html?id='+client.id" class="nav-link"><svg
+                                                xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-safe2-fill" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M6.563 8H5.035a3.482 3.482 0 0 1 .662-1.596l1.08 1.08c-.094.16-.167.332-.214.516zm.921-1.223-1.08-1.08A3.482 3.482 0 0 1 8 5.035v1.528c-.184.047-.357.12-.516.214zM9 6.563V5.035a3.482 3.482 0 0 1 1.596.662l-1.08 1.08A1.988 1.988 0 0 0 9 6.563zm1.223.921 1.08-1.08c.343.458.577 1.003.662 1.596h-1.528a1.989 1.989 0 0 0-.214-.516zM10.437 9h1.528a3.483 3.483 0 0 1-.662 1.596l-1.08-1.08c.094-.16.167-.332.214-.516zm-.921 1.223 1.08 1.08A3.483 3.483 0 0 1 9 11.965v-1.528c.184-.047.357-.12.516-.214zM8 10.437v1.528a3.483 3.483 0 0 1-1.596-.662l1.08-1.08c.16.094.332.167.516.214zm-1.223-.921-1.08 1.08A3.482 3.482 0 0 1 5.035 9h1.528c.047.184.12.357.214.516zM7.5 8.5a1 1 0 1 1 2 0 1 1 0 0 1-2 0z" />
+                                                <path
+                                                    d="M2.5 1A1.5 1.5 0 0 0 1 2.5V3H.5a.5.5 0 0 0 0 1H1v4H.5a.5.5 0 0 0 0 1H1v4H.5a.5.5 0 0 0 0 1H1v.5A1.5 1.5 0 0 0 2.5 16h12a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 14.5 1h-12zm6 3a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9z" />
+                                            </svg></a>
+                                    </button>
+                                    <button class="btn btn-dark">
+                                        <a :href="'/web/cards.html?id='+client.id" class="nav-link"><svg
+                                                xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-safe2-fill" viewBox="0 0 16 16">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    fill="currentColor" class="bi bi-credit-card" viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1H2zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7z" />
+                                                    <path
+                                                        d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1z" />
+                                                </svg></a>
+                                    </button>
+                                    <button class="btn btn mb-3">
+                                        <a :href="'/web/dashboard/dashboard.html?id='+client.id"
+                                            style="text-decoration: none;" class="text-dark mb-5">dash</a>
+                                    </button>
+                                    <button class="btn btn btn-primary mb-3">
+                                        <a :href="'./webb/pages/homebanking.html?id='+client.id"
+                                            style="text-decoration: none;" class="text-dark mb-5">dash</a>
+                                    </button>
+                                </td>
+
+                                <td>{{client.name}}</td>
+                                <td>{{client.lastName}}</td>
+                                <td>{{client.email}}</td>
+                                <td>{{client.phone}}</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </section>
+                <section class="mt-5">
+                    <h2>JSON</h2>
+                    <article class="d-flex ">
+                        {{clients}}
+                    </article>
+                </section>
+            </div>
+        </main>
+        <footer></footer>
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="./manager.js"></script>
+
+</body>
+
+</html>

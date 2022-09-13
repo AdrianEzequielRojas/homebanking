@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles/homebanking.css">
+<link rel="shortcut icon" href="/web/img/logo_arbol.png" type="image/x-icon">
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Dosis:300" rel="stylesheet">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://kit.fontawesome.com/c8ee3dd930.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+
+    <div id="app">
+
+        <header class="">
+            <div class="falling-leaves m-0">
+                <section class="hero-section">
+                    <div class="row justify-content-center">
+                        <h1 class="text-center fs-1 text-light text-focus-in fw-bold">Your Accounts {{clients.name}}
+                        </h1>
+                    </div>
+                </section>
+            </div>
+            <nav class="navbar navbar-default navbar-expand-lg nav-menu p-0">
+
+                <div class="container-fluid">
+
+                    <button class="navbar-toggler nav-button" type="button" data-toggle="collapse"
+                        data-target="#myNavbar">
+                        <div class="line1 ham"></div>
+                        <div class="line2 ham"></div>
+                        <div class="line3 ham"></div>
+                    </button>
+
+                    <div class="collapse navbar-collapse justify-content-center" id="myNavbar">
+
+                        <ul class="navbar-nav ml-aulo">
+                            <li class="nav-item">
+                                <a class="nav-link m-2 menu-item  fw-bold" href="/webb/pages/index.html"> Home
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link m-2 menu-item  fw-bold" href="/webb/pages/homebanking.html"> Profile
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link m-2 menu-item fw-bold  nav-active " href="#">
+                                    Accounts
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link m-2 menu-item fw-bold " href="/webb/pages/cards.html"> Cards </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link m-2 menu-item fw-bold" href="/webb/pages/transactions.html">
+                                    Transactions </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link m-2 menu-item fw-bold" href="/webb/pages/loans.html"> Loans </a>
+                            </li>
+                            <li class="nav-item">
+                                <button @click="logout()" style="border: none; background: none;">
+                                    <a class="nav-link m-2 menu-item fw-bold" href="./login.html">Logout</a>
+                                </button>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+
+        </header>
+
+        <main class="d-flex flex-wrap justify-content-center gap-0">
+            <div class="container  mb-5">
+                <button class="btn btn-dark" @click="createAccount()" v-if="accounts.length <= 3">Create new
+                    account</button>
+
+                <h2 class="text-center">Your Accounts</h2>
+                <div class="container-fluid d-flex flex-wrap">
+                    <div class="container-fluid d-flex flex-wrap gap-5  justify-content-center
+                    ">
+                        <!-- <div class="bg-light"> -->
+                        <div class="card mt-5 boxSha p-2 fade-in" style="height: 15rem;" v-for="account in accounts">
+                            <div class="title">
+                                <h4 class="text-bold">{{account.number}}</h4>
+                            </div>
+                            <div class="content">
+                                <div class="social">
+
+                                    <h4>Account Date</h4>
+                                    <div>
+                                        <h4>{{account.creationDate}}</h4>
+                                    </div>
+                                </div>
+
+                                <div class="social">
+                                    <h4>Account Balance</h4>
+                                    <div class="d-flex justify-content-evenly">
+                                        <h3>${{account.balance}}</h3>
+                                        <button class="btn btn-dark">
+                                            <a href="/webb/pages/transfers.html" class="text-light">transactions</a>
+                                        </button>
+                                        <button class="btn btn-dark"><a
+                                                :href="'/webb/pages/account.html?id='+account.id"
+                                                class="text-light">Moves</a> </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="circle"></div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="container-fluid d-flex justify-content-evenly w-50 mb-5 mt-5">
+                <div class="card w-100">
+                    <div class="card-header px-3 ht">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6 class="mb-0">Your Transaction's</h6>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card-body pt-4 p-3 " v-if="accounts.length != 0">
+                        <h6 class="text-uppercase text-body text-xs font-weight-bolder mb-3">Newest</h6>
+                        <ul class="list-group" v-for="account in accounts">
+                            <li v-for="transaction in account.transaction"
+                                class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+                                <div class="d-flex align-items-center">
+                                    <div v-if="transaction.type == 'DEBIT'"
+                                        class="btn btn-icon-only btn-rounded btn-outline-danger mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center">
+                                        <i class="material-icons text-lg">D</i>
+                                    </div>
+                                    <div v-else="transaction.type == 'CREDIT'"
+                                        class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center">
+                                        <i class="material-icons text-lg">C</i>
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                        <h6 class="mb-1 text-dark text-sm">{{transaction.type}}</h6>
+                                        <span class="text-xs">{{transaction.date}}</span>
+                                        <span class="text-xs">{{account.number}}</span>
+                                    </div>
+                                </div>
+                                <div v-if="transaction.type == 'DEBIT'"
+                                    class="d-flex align-items-center text-danger text-gradient text-sm font-weight-bold">
+                                    {{transaction.amount}}
+                                </div>
+                                <div v-else=""
+                                    class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
+                                    +{{transaction.amount}}
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div v-else class="text-center mt-5">
+                        <h2>you haven't any transactions</h2>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </div>
+
+
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-content pt-5 pb-5">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 mb-50">
+                        <div class="footer-widget">
+                            <div class="footer-logo">
+                                <a href="index.html"><img src="../assets/img/TokioBank_logo.svg" class="img-fluid"
+                                        alt="logo"></a>
+                            </div>
+                            <div class="footer-text">
+                                <p>Lorem ipsum dolor sit amet, consec tetur adipisicing elit, sed do eiusmod tempor
+                                    incididuntut consec tetur adipisicing
+                                    elit,Lorem ipsum dolor sit amet.</p>
+                            </div>
+                            <div class="footer-social-icon">
+                                <span>Follow us</span>
+                                <a href="#"><i class="fab fa-facebook-f facebook-bg"></i></a>
+                                <a href="#"><i class="fab fa-twitter twitter-bg"></i></a>
+                                <a href="#"><i class="fab fa-google-plus-g google-bg"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-4 col-lg-4 col-md-6 mb-50">
+                        <div class="footer-widget">
+                            <div class="footer-widget-heading">
+                                <h3>Subscribe</h3>
+                            </div>
+                            <div class="footer-text mb-25">
+                                <p>Don’t miss to subscribe to our new feeds, kindly fill the form below.</p>
+                            </div>
+                            <div class="subscribe-form">
+                                <form action="#">
+                                    <input type="text" placeholder="Email Address">
+                                    <button><i class="fab fa-telegram-plane"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1500,
+            once: true
+        });
+
+    </script>
+    <!-- Link to page
+    ================================================== -->
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="/webb/assets/js/accounts.js"></script>
+
+</body>
+
+</html>

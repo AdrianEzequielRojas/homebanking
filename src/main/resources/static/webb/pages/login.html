@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="/webb/assets/img/logo_arbol.png">
+  <title>
+    Login
+  </title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link id="pagestyle" href="/webb/assets/styles/soft-ui-dashboard.css" rel="stylesheet" />
+</head>
+
+<body class="">
+  <div id="app">
+    <main class="main-content  mt-0">
+      <section>
+        <div class="page-header min-vh-75">
+          <div class="container">
+            <div class="row">
+              <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
+                <div class="card card-plain mt-8">
+                  <div class="card-header pb-0 text-left bg-transparent">
+                    <h3 class="font-weight-bolder text-info text-gradient">Welcome back</h3>
+                    <p class="mb-0">Enter your email and password to sign in</p>
+                  </div>
+                  <div class="card-body">
+
+                    <form role="form" action="#" @submit.prevent=""> 
+                      <label>Email</label>
+                      <div class="mb-3">
+                        <input type="email"  v-model="emailValue" placeholder="Email" class="form-control" placeholder="Email" aria-label="Email"
+                          aria-describedby="email-addon">
+                      </div>
+                      <label>Password</label>
+                      <div class="mb-3">
+                        <input  class="form-control" placeholder="Password" aria-label="Password"
+                          aria-describedby="password-addon" v-model="userPassword" type="password" placeholder="Password" >
+                      </div>
+                      <div class="text-center">
+                        <button class="btn bg-gradient-info w-100 mt-4 mb-0"  type="submit" value="login" @click="login()">Sign in</button>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="card-footer text-center pt-0 px-lg-2 px-1">
+                    <p class="mb-4 text-sm mx-auto">
+                      Don't have an account?
+                      <a href="/webb/pages/index.html" class="text-info text-gradient font-weight-bold">Sign up</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+
+                <div class="oblique position-absolute top-0 h-100 d-md-block d-none me-n8">
+                  <div class="falling-leaves">
+                    <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6"
+                      style="background-image:url('/webb/assets/img/fondo-login.webp')"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer pt-3  ">
+      <div class="container-fluid">
+        <div class="row align-items-center justify-content-lg-between">
+          <div class="col-lg-6 mb-lg-0 mb-4">
+            <div class="copyright text-center text-sm text-muted text-lg-start">
+              ©
+              <script>
+                document.write(new Date().getFullYear())
+              </script>,
+              made with <i class="fa fa-heart"></i> by
+              <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">MindHub Coohort 30</a>
+              for Adrian Ezequiel Rojas.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/vue@3"></script>
+  <script src="/webb/assets/js/login.js"></script>
+</body>
+
+</html>
