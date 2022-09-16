@@ -5,7 +5,7 @@ import com.minhub.homebanking.models.Client;
 import com.minhub.homebanking.repositories.ClientRepositories;
 import com.minhub.homebanking.services.AccountService;
 import com.minhub.homebanking.services.ClientService;
-import org.jetbrains.annotations.NotNull;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,7 +31,7 @@ public class ClientController {
     private ClientService clientService;
 
 
-    @RequestMapping("/clients")
+    @GetMapping("/clients")
     public List<ClientDTO> getClients() {
         return clientService.getAllClients().stream().map(ClientDTO::new).collect(Collectors.toList());
     }
@@ -53,7 +53,7 @@ public class ClientController {
     }
 
     @RequestMapping("/clients/current")
-    public ClientDTO getAll(@NotNull Authentication authentication) {
+    public ClientDTO getAll(Authentication authentication) {
     return  new ClientDTO(clientService.findClientByEmail(authentication.getName()));
     }
 }

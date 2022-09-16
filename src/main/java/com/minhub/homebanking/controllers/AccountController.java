@@ -1,7 +1,6 @@
 package com.minhub.homebanking.controllers;
 
 import com.minhub.homebanking.DTO.AccountDTO;
-import com.minhub.homebanking.DTO.ClientDTO;
 import com.minhub.homebanking.models.Account;
 import com.minhub.homebanking.models.AccountType;
 import com.minhub.homebanking.models.Client;

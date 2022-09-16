@@ -62,13 +62,13 @@ public class HomebankingApplication {
 
 
 
-			//LOANS//
+			//CLIENTLOANS//
 			ClientLoan clientAdrian3 = new ClientLoan(clientAdrian2,personal.getPayments().get(2),100000,personal);
 			ClientLoan clientAdrian4 = new ClientLoan(clientAdrian2,automotriz.getPayments().get(3),200000,automotriz);
 
 			ClientLoan clientmelba3 = new ClientLoan(clientMelba,personal.getPayments().get(2),50000,personal);
 			ClientLoan clientmelba4 = new ClientLoan(clientMelba,hipotecario.getPayments().get(4),400000,hipotecario);
-			//LOANS//
+			//CLIENTLOANS//
 
 			//CARDS//
 			Card cardMelbaGold =  new Card(clientMelba,CardType.DEBIT,CardColor.GOLD,"4003 6440 3318 1144",574,LocalDate.now(), LocalDate.now().plusDays(1));
@@ -81,14 +81,11 @@ public class HomebankingApplication {
 			accountMelba.addTransaction(transactionMelba3);
 			accountMelba.addTransaction(transactionMelba);
 			accountMelba2.addTransaction(transactionMelba2);
-
 			clientMelba.addCards(cardMelbaTitanium);
 			clientMelba.addCards(cardMelbaGold);
 			clientMelba.addAccounts(accountMelba);
 			clientMelba.addAccounts(accountMelba2);
 			clientRepository.save(clientMelba);
-
-
 			cardRepositories.save(cardMelbaTitanium);
 			cardRepositories.save(cardMelbaGold);
 			accountRepository.save(accountMelba);
@@ -97,7 +94,6 @@ public class HomebankingApplication {
 			transactionRepositories.save(transactionMelba);
 			transactionRepositories.save(transactionMelba2);
 			transactionRepositories.save(transactionMelba3);
-
 // CLIENTE MELBA ///
 // CLIENTE ADRIAN ///
 			accountAdrian2.addTransaction(transactionAdrian2);

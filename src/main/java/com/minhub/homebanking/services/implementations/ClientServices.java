@@ -1,8 +1,8 @@
 package com.minhub.homebanking.services.implementations;
 
+import com.minhub.homebanking.services.ClientService;
 import com.minhub.homebanking.models.Client;
 import com.minhub.homebanking.repositories.ClientRepositories;
-import com.minhub.homebanking.services.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

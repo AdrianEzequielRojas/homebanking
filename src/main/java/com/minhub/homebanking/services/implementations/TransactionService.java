@@ -1,6 +1,5 @@
 package com.minhub.homebanking.services.implementations;
 
-import com.minhub.homebanking.DTO.FilteredTransactionDTO;
 import com.minhub.homebanking.models.Account;
 import com.minhub.homebanking.models.Transaction;
 import com.minhub.homebanking.repositories.TransactionRepositories;
